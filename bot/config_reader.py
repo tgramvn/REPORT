@@ -15,20 +15,20 @@ class Settings(BaseSettings):
 
     @validator("lang")
     def validate_lang(cls, v):
-        if v not in ("en", "ru"):
-            raise ValueError("Incorrect value. Must be one of: en, ru")
+        if v not in ("en", "vi"):
+            raise ValueError("Giá trị không chính xác. Phải là một trong số: en, vi")
         return v
 
     @validator("report_mode")
     def validate_report_mode(cls, v):
         if v not in ("group", "private"):
-            raise ValueError("Incorrect value. Must be one of: group, private")
+            raise ValueError("Giá trị không chính xác. Phải là một trong số: group, private")
         return v
 
     @validator("group_reports")
     def validate_group_reports(cls, v, values):
         if values.get("report_mode") == "group" and v is None:
-            raise ValueError("Reports group ID not set")
+            raise ValueError("ID nhóm báo cáo chưa được đặt")
         return v
 
     class Config:
