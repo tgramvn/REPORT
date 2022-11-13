@@ -32,37 +32,37 @@ class Lang:
 
             "channels_not_allowed": "Sending messages on behalf of channels is not allowed in this group. Channel banned."
         },
-        "ru": {
-            "error_no_reply": "Эта команда должна быть ответом на какое-либо сообщение!",
-            "error_report_admin": "Админов репортишь? Ай-ай-ай 😈",
-            "error_restrict_admin": "Невозможно ограничить администратора.",
-            "error_cannot_restrict": "У вас нет права ограничивать пользователей",
-            "error_cannot_report_linked": "Нельзя жаловаться на сообщения из привязанного канала",
+        "vi": {
+            "error_no_reply": "Vui lòng reply tin nhắn mà bạn muốn báo cáo!",
+            "error_report_admin": "Bạn đang báo cáo chính quản trị viên? á á á 😈",
+            "error_restrict_admin": "Không thể hạn chế quản trị viên.",
+            "error_cannot_restrict": "Bạn không có quyền hạn chế người dùng!",
+            "error_cannot_report_linked": "Bạn không thể báo cáo tin nhắn từ một kênh được liên kết",
 
             "report_date_format": "%d.%m.%Y в %H:%M",
-            "report_message": '👆 Отправлено {time} (время серверное)\n'
-                              '<a href="{msg_url}">Перейти к сообщению</a>',
-            "report_note": "\n\nПримечание: {note}",
-            "report_sent": "<i>Жалоба отправлена администраторам</i>",
+            "report_message": '👆 Đã gửi {time} (thời gian máy chủ)\n'
+                              '<a href="{msg_url}">Xem nội dung bị báo cáo</a>',
+            "report_note": "\n\nGhi chú: {note}",
+            "report_sent": "<i>Khiếu nại gửi đến quản trị viên.</i>",
 
-            "action_del_msg": "Удалить сообщение",
-            "action_del_and_ban": "Удалить и забанить",
+            "action_del_msg": "Xóa tin nhắn",
+            "action_del_and_ban": "Xóa và cấm",
 
-            "action_deleted": "\n\n🗑 <b>Удалено</b>",
-            "action_deleted_banned": "\n\n🗑❌ <b>Удалено, юзер или чат забанен</b>",
-            "action_deleted_partially": "Не удалось найти или удалить некоторые сообщения. "
-                                        "Возможно, они уже были удалены другим админом.",
+            "action_deleted": "\n\n🗑 <b>Đã xóa nội dung.</b>",
+            "action_deleted_banned": "\n\n🗑❌ <b>Đã xóa tin nhắn và cấm người dùng.</b>",
+            "action_deleted_partially": "Không thể tìm thấy hoặc xóa một số tin nhắn. "
+                                        "Họ có thể đã bị xóa bởi một quản trị viên khác.",
 
-            "readonly_forever": "🙊 <i>Пользователь переведён в режим «только чтение» навсегда</i>",
-            "readonly_temporary": "🙊 <i>Пользователь переведён в режим «только чтение» до {time} (время серверное)</i>",
-            "nomedia_forever": "🖼 <i>Пользователю запрещено отправлять медиафайлы навсегда</i>",
-            "nomedia_temporary": "🖼 <i>Пользователю запрещено отправлять медиафайлы до {time} (время серверное)</i>",
-            "channel_banned_forever": "📛 <i>Канал забанен навсегда</i>",
+            "readonly_forever": "🙊 <i>Người dùng đã bị khóa mõm vĩnh viễn.</i>",
+            "readonly_temporary": "🙊 <i>Người dùng đã bị khóa mõm trong {time}</i>",
+            "nomedia_forever": "🖼 <i>Người dùng bị cấm gửi phương tiện vĩnh viễn</i>",
+            "nomedia_temporary": "🖼 <i>Người dùng bị cấm gửi phương tiện trong {time}</i>",
+            "channel_banned_forever": "📛 <i>Kênh bị cấm vĩnh viễn</i>",
 
-            "need_admins_attention": 'Уважаемые админы, в чате нужно ваше присутствие!\n\n'
-                                     '<a href="{msg_url}">Перейти к чату</a>',
+            "need_admins_attention": 'Kính gửi các quản trị viên, chúng tôi cần sự hiện diện của bạn trong nhóm!\n\n'
+                                     '<a href="{msg_url}">Đi tới trò chuyện</a>',
 
-            "channels_not_allowed": "В этой группе запрещено отправлять сообщения от имени канала. Сам канал забанен."
+            "channels_not_allowed": "Nhóm này không được phép gửi tin nhắn nhân danh kênh. Kênh chính nó đã bị cấm."
         },
     }
 
@@ -70,7 +70,7 @@ class Lang:
         if language_key in self.strings.keys():
             self.chosen_lang = language_key
         else:
-            raise ValueError(f"No such language: {language_key}")
+            raise ValueError(f"Không có ngôn ngữ như vậy: {language_key}")
 
     def get(self, key):
         return self.strings.get(self.chosen_lang, {}).get(key, "%MISSING STRING%")
