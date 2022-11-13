@@ -13,7 +13,7 @@ from bot.localization import Lang
 
 async def set_bot_commands(bot: Bot, main_group_id: int):
     commands = [
-        BotCommand(command="report", description="Report message to group admins"),
+        BotCommand(command="report", description="Báo cáo tin nhắn cho quản trị viên nhóm"),
     ]
     await bot.set_my_commands(commands, scope=BotCommandScopeChat(chat_id=main_group_id))
 
@@ -32,7 +32,7 @@ async def main():
     try:
         await check_rights_and_permissions(bot, config.group_main)
     except (TelegramAPIError, PermissionError) as error:
-        error_msg = f"Error with main group: {error}"
+        error_msg = f"Lỗi với nhóm chính: {error}"
         try:
             await bot.send_message(config.group_reports, error_msg)
         finally:
@@ -43,7 +43,7 @@ async def main():
     try:
         result = await fetch_admins(bot)
     except TelegramAPIError as error:
-        error_msg = f"Error fetching main group admins: {error}"
+        error_msg = f"Lỗi khi tìm nạp quản trị viên nhóm chính: {error}"
         try:
             await bot.send_message(config.group_reports, error_msg)
         finally:
@@ -54,7 +54,7 @@ async def main():
     try:
         lang = Lang(config.lang)
     except ValueError:
-        print(f"Error no localization found for language code: {config.lang}")
+        print(f"Lỗi không tìm thấy bản địa hóa cho mã ngôn ngữ: {config.lang}")
         return
 
     # Register handlers
